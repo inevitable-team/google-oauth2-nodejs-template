@@ -1,0 +1,13 @@
+<nav class="blue accent-2">
+    <div class="nav-wrapper">
+      <a href="/" class="brand">NavEnabled</a>
+      <ul id="nav-mobile" class="right">
+        <% if (user) { %>
+            <li><a href="/auth/logout"><p>Log out</p></a></li>
+            <li><a href="/profile"><p>Profile</p><img src="<%= user.thumbnail %>"/></a></li>
+            <% } else { %>
+            <li><a href="/auth/login"><p>Signup</p></a></li>
+        <% } %>
+      </ul>
+    </div>
+</nav>
