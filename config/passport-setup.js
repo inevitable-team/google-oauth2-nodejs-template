@@ -19,7 +19,6 @@ passport.use(
         clientSecret: process.env.GOOGLE_SECRET,
         callbackURL: '/auth/google/redirect',
     }, (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
         // check if user already exists in our own db
         User.findOne({email: profile._json.email}).then((currentUser) => {
             if(currentUser){
