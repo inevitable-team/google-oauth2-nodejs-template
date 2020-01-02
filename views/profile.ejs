@@ -13,13 +13,8 @@
         </header>
         <main>
             <h2>Details:</h2>
-            <form action="/profile" method="post">
-                Name: <input type="text" name="name" value="<%= user.name || '' %>"><br>
-                <button class="btn waves-effect waves-light blue accent-2" type="submit" name="action">Update Details</button>
-            </form>
-            <% if (error != null) { %>
-                <div class="error"><p>Encountered Error: <%= error %> </p></div>
-            <% } %>
+            <%- include('components/profileForm'); -%>
+            <% if (error != null) { %> <div class="error"><p>Encountered Error: <%= error %> </p></div> <% } %>
         </main>
         <%- include('components/javascript'); -%>
     </body>
