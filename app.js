@@ -9,8 +9,10 @@ const profileRoutes = require('./routes/profile-routes');
 const passportSetup = require('./config/passport-setup');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 3000;
+const enforce = require('express-sslify');
 
 const app = express();
+if (process.env.NODE_ENV == "production") app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 // Other needed Middleware
 app.use(bodyParser.json());

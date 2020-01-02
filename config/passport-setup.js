@@ -18,6 +18,7 @@ passport.use(
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_SECRET,
         callbackURL: '/auth/google/redirect',
+        proxy: true
     }, (accessToken, refreshToken, profile, done) => {
         // check if user already exists in our own db
         User.findOne({email: profile._json.email}).then((currentUser) => {
